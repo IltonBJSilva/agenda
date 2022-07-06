@@ -14,7 +14,11 @@ class Evento(models.Model):
     #O parametro que vai receber seria de sempre que for criado um novo registro
     #Vai inserir a hora atual nesse campo quando inseri
     data_criacao = models.DateTimeField(auto_now=True,verbose_name='Data da criação')
+    local_evento = models.TextField(blank=True, null=True, verbose_name='Local do Evento')
     usuario = models.ForeignKey(User, on_delete=models.CASCADE) #Usando a tabela de usuarios do Django e se for excluido da aplicação, exclui todos eventos dele
+
+
+
 
     #criar uma tabela apenas com o nome dos eventos
     class Meta:
@@ -22,6 +26,10 @@ class Evento(models.Model):
 
     def __str__(self):
         return self.titulo #sempre que chamar esse objeto, vai trazer o nome do titulo
+
+    #Função para formatar a data em um padrão legal
+    def get_data_evento(self):
+        return self.data_evento.strftime('%d/%m/%Y - %H:%M Hrs')
 
 
 
