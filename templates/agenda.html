@@ -1,10 +1,12 @@
 {% extends "model-page.html"%}
+<!--Conteudo da pagina-->
 {% block content %}
-    <title>Agendamentos</title>
     <h1>Agenda</h1>
+
     <ul style="font-size: 18px">
         {% for evento in eventos %} <!--Para usar comandos no python-->
-        <li>{{ evento.titulo }} - {{evento.get_data_evento}}</li><!--Para imprimir na tela-->
+			<li>{{ evento.titulo }} - {{evento.get_data_evento}}</li><!--Para imprimir na tela-->
         {% endfor %}
      </ul>
+
 {% endblock %}
